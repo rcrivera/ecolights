@@ -1,9 +1,25 @@
-<div class="container">
+<div class="container content">
 	<div class="row">
-    <div class="col-md-12"><h1><%= @header %></h1></div>
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li><%= link_to "Featured Products", admin_featured_products_path %></li>
+        <li class="active"> <%= @header %></li>
+      </ol>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @header %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+	  <div class="col-md-12">
 
 	<%= render 'form' %>
 
-	<%= link_to 'Back', admin_featured_products_path %>
+		</div>
+	</div>
 </div>
