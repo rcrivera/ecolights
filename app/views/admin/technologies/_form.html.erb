@@ -1,0 +1,59 @@
+ <div class="container">
+    <div class="col-md-12">
+      <%= form_for [:admin, @technology], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+        <fieldset>
+          <legend>Technology Form</legend>
+          <% if @technology.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@technology.errors.count, "error") %> prohibited this technology from being saved:</h2>
+
+              <ul>
+              <% @technology.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.label :title, 'Name', :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :description, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <% if @technology.picture? %>
+            <div class="form-group"><label class = "control-label">Current Picture</label><div class="controls"><%= image_tag @technology.picture.url(:thumb) %></div></div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.label :picture, "Replace Picture",:class => "control-label" %>
+            <div class="controls">
+              <%= f.file_field :picture%>
+            </div>
+          </div>
+
+          <% if @technology.picture? %>
+            <div class="form-group">
+              <%= label_tag 'remove_picture', "Remove Picture", class: 'control-label' %>
+              <%= check_box_tag(:remove_picture) %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div> <!-- row div -->
+
+

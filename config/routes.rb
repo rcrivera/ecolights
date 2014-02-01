@@ -1,9 +1,37 @@
 Ecolights::Application.routes.draw do
+
+  get "admin/product_manager"
+  get "admin/category_manager"
+  get "admin/technology_manager"
+  get "admin/user_manager"
+
+  get "general/index" , :as => "index"
+  get "general/about_us", :as => "about"
+
+  post "/featured_products/:id" => "featured_products#edit"
+
+  devise_for :users
+
+  resources :contacts
+
+  resources :technologies, only: [:show, :index]
+
+  resources :products , only: [:show]
+
+  resources :categories, only: [:show, :index] do
+    resources :products , only: [:show]
+  end
+
+  namespace :admin do
+    resources :products, :featured_products, :technologies, :approvals, :categories, :downloads, :models
+    root "general#index"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'general#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

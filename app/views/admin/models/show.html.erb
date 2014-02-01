@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @model.product_id %>
+</p>
+
+<p>
+  <strong>Sku code:</strong>
+  <%= @model.sku_code %>
+</p>
+
+<p>
+  <strong>Characteristics:</strong>
+  <%= @model.characteristics %>
+</p>
+
+<%= link_to 'Edit', edit_admin_model_path(@model) %> |
+<%= link_to 'Back', admin_models_path %>
+

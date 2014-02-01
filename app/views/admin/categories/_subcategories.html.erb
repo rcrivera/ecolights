@@ -1,0 +1,15 @@
+<ul>
+  <% subcats.each do |subcat| %>
+  	<% if subcat.has_children? %>
+  		<li>
+	  		<%= link_to_unless_current subcat.title, subcat %>
+	  		<%= render 'admin/categories/subcategories', subcats: subcat.children %>
+  		</li>
+  	<% else %>
+  		<li class="category_leaf">
+	  		<%= check_box_tag "product[category_ids][]", subcat.id, @product.category_ids.include?(subcat.id), id: dom_id(subcat) %>
+	        <%= label_tag dom_id(subcat), subcat.title %>
+        </li>
+  	<% end %>
+  <% end %>
+</ul>

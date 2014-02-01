@@ -1,0 +1,29 @@
+<fieldset>
+
+  <div class="form-group">
+    <%= f.label :title, :class => "control-label" %>
+    <%= link_to "(remove)", '#', class: "remove_downloads" %>
+    <div class="controls">
+      <%= f.text_field :title, :class => "form-control input-xlarge" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :pdf, 'File', :class => "control-label" %>
+    <div class="controls">
+      <%= f.file_field :pdf %>
+    </div>
+    <% if f.object.pdf? %>
+      <%= link_to f.object.title, f.object.pdf.url, :target => "_blank" %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :_destroy, 'Destroy Download', class: 'control-label' %>
+    <%= f.check_box :_destroy, :class => "checkbox" %>
+  </div>
+
+  <hr>
+
+</fieldset>
+

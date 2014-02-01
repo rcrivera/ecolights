@@ -1,0 +1,18 @@
+<fieldset>
+
+	<div class="form-group">
+    <%= f.label :characteristics, 'Values', :class => "control-label" %>
+    <%= link_to "(remove)", '#', class: "remove_models" %>
+    <div class="controls">
+      <%= f.text_area :characteristics, :class => "form-control input-xlarge" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :_destroy, 'Destroy Model', class: 'control-label' %>
+    <%= f.check_box :_destroy, :class => "checkbox" %>
+  </div>
+
+  <hr>
+</fieldset>
+

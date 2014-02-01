@@ -1,0 +1,44 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li><%= link_to 'Approvals', admin_categories_path %></li>
+        <li class="active"> <%= @approval.title %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @approval.title %></h2>
+      <p><%= link_to 'Edit', edit_admin_approval_path(@approval), :class=>"btn btn-danger" %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody class="index-admin">
+          	<tr>
+            	<td><strong>Picture</strong></td>
+              <td><%= image_tag @approval.picture.url(:thumb) %></td>
+            </tr>
+
+            <tr>
+            	<td><strong>Name</strong></td>
+              <td><%= @approval.title %></td>
+            </tr>
+
+             <tr>
+            	<td><strong>Description</strong></td>
+              <td><%= @approval.description %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="row content">
+    <div class="col-md-12"><h1 class="header">Welcome to Ecolights!</h1>
+      <p class="lead centralize"> Unrivalled design & manufacturing. Global distribution.</p>
+    </div>
+  </div>
+  <div class="row content">
+    <h2 class="centralize ft-product-title">Take a look on our featured products</h2>
+  </div>
+
+  <div class="row content">
+    <div class="col-md-6">
+      <div id="carousel-featured-products" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <% i = 0 %>
+          <% @featured_products.each do |ft|%>
+            <% if i == 0 %>
+              <li data-target="#carousel-featured-products" data-slide-to= <%= i %> class="active"></li>
+            <% else %>
+              <li data-target="#carousel-featured-products" data-slide-to= <%= i %> ></li>
+            <% end %>
+            <% i+=1 %>
+          <%end%>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <% i = 0 %>
+          <% @featured_products.each do |ft|%>
+            <% product = ft.product %>
+            <% if i == 0 %>
+              <div class="item active">
+            <% else %>
+              <div class="item">
+            <% end %>
+            <%= image_tag product.picture.url(:original), :class=> "carousel-picture" ,:size => "350x180"%>
+              <div class="carousel-caption featured-product-caption"><h3><%= product.title %><br><small><%= link_to 'Learn more...', product%></small></h3>
+                <p class="lead message"> <%= ft.message %></p>
+               </div>
+            <% i+=1 %>
+          </div>
+          <% end %>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-featured-products" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-featured-products" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+       <!-- Indicators -->
+        <ul class="ft-product-titles">
+          <% i = 0 %>
+          <% @featured_products.each do |ft|%>
+            <% if i == 0 %>
+              <li> <h4> <a href="#carousel-featured-products" data-slide-to= <%= i %> class="active"> <%= ft.product.title%> </a> </h4></li>
+            <% else %>
+              <li> <h4> <a href="#carousel-featured-products" data-slide-to= <%= i %> ><%= ft.product.title%> </a></h4> </li>
+            <% end %>
+            <% i+=1 %>
+          <%end%>
+        </ul>
+    </div>
+  </div>
+</div>
+
+

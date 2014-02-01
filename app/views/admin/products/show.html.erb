@@ -1,0 +1,158 @@
+ <div class="container content">
+
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li><%= link_to "Products", admin_products_path %></li>
+        <li class="active"> <%= @product.title %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row row-section">
+    <div class="col-md-5">
+      <%= image_tag @product.picture.url(:original), :class=>"img-thumbnail product-show", :size => "420x200" %>
+    </div>
+    <div class="col-md-7">
+      <div class="row p-general-show"> <%= link_to 'Edit', edit_admin_product_path(@product), :class=>"btn btn-danger" %> </div>
+      <div class="row p-general-show"> <h4 class="sku-show"><%= @product.sku_code %> </h4></div>
+      <div class="row p-general-show"> <h2 class="p-title-show"><%= @product.title %> </h2></div>
+      <div class="row p-general-show"> <p class = "p-description-show"><%= @product.description %> </p></div>
+    </div>
+  </div>
+
+  <% if @product.specifications != "" %>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 section">
+      <h3>Specifications</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 section">
+      <% specifications = split_data(@product.specifications)
+      columns = 2
+      i = 0 %>
+
+      <table class="table table-striped specifications">
+        <tbody>
+          <% specifications.each do |spec|%>
+            <% spec = split_spec(spec)%>
+            <% if i%columns == 0 %>
+              <tr><td class="p-spec-show"><b> <%=spec[0]%>: </b> <%=spec[1]%></td>
+            <% else %>
+              <td class="p-spec-show"><b> <%=spec[0]%>: </b> <%=spec[1]%></td></tr>
+            <% end%>
+            <% i+=1 %>
+          <% end %>
+          <% if i%columns != 0 %>
+            <td></td></tr>      
+          <% end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% end %>
+
+  <% if @product.features != "" %>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 section">
+      <h3>Features</h3>
+    </div>
+  </div>
+
+   <div class="row">
+    <div class="col-md-12">
+      <table class= "table table-striped">
+        <tbody>
+          <% features = split_data(@product.features)%>
+          <% features.each do |feature| %>
+            <tr><td class="p-feature-show"><%= feature %></td></tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% end %>
+
+  <% product_models =  @product.models %>
+  <% if product_models.count > 0 %>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 section">
+      <h3>Models</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 section">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+            <% titles = split_data(@product.attributes_titles)%>
+            <% titles.each do |title|%>
+              <th class="p-model-show"><%= title %></th>
+            <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% product_models.each do |models| %>
+              <tr>
+                <% values = split_data(models.characteristics)%>
+                <% for i in 0..titles.count %>
+                  <td class="p-model-show"><%= values[i] %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+  <% product_approvals =  @product.approvals %>
+  <% if product_approvals.count > 0 %>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 section">
+      <h3>Approvals</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 section">
+      <% product_approvals.each do |approval|%>
+        <%= image_tag approval.picture.url(:thumb) %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
+
+  <% product_downloads =  @product.downloads %>
+  <% if product_downloads.count > 0 %>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 section">
+      <h3>Downloads</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 section">
+      <% product_downloads.each do |download|%>
+        <%= link_to download.title,download.pdf.url, :target => "_blank", :class=>"btn btn-info p-download-show", :type=> "button" %>
+        
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
+</div>
+

@@ -1,0 +1,42 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%=link_to "Home", root_url %></li>
+        <% if @category.nil? %>
+          <li class="active"><%= "Products" %></li>
+        <% else %>
+          <li><%= link_to "Products", categories_path %></li>
+          <% @category.ancestors.each do |ancestor| %>
+            <li><%= link_to ancestor.title, ancestor %></li>
+          <% end %>
+          <li class="active"><%= @category.title %></li>
+        <%end%>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @header %></h2>
+    </div>
+  </div>
+  <%  columns = 2
+      i = 0
+  %>
+  <% @categories.each do |category| %>
+    <% if i%columns == 0 %>
+      <div class="row">
+    <% end %>
+      <div class="col-md-6 browse_categories">
+          <%= image_tag category.picture.url(:medium), :class=>"img-thumbnail index" %><br>
+          <h4 class="flat-font"><%= link_to category.title, category %></h4>
+        </div>
+    <% if i%columns == columns-1 || @categories.count - 1 == i%>
+      </div>
+    <% end %>
+    <% i+= 1 %>
+  <%end%>
+</div>
+
+
+

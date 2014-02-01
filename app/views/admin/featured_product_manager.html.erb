@@ -1,0 +1,59 @@
+<h1>Featured Products Manager</h1>
+
+  <div class="field">
+    <fieldset>
+      <legend>Featured Products</legend>
+      <table>
+        <thead>
+          <tr>
+            <th></th><!-- Product picture -->
+            <th>Product Name</th>
+            <th>Message</th> 
+            <th></th><!-- Edit/Destroy -->
+          </tr>
+        </thead>
+
+        <tbody>
+          <% FeaturedProduct.all.each do |featured_product| %>
+            <% product = featured_product.product %>
+            <tr>
+              <td><%= image_tag product.picture.url(:thumb) %></td>
+              <td><%= link_to product.title, product %></td>
+              <td><%= featured_product.message %></td>
+              <td><%= link_to 'Edit', edit_featured_product_path(featured_product) %><br>
+              <%= link_to 'Remove', featured_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </fieldset>
+  </div>
+
+  <div class="field">
+    <fieldset>
+      <legend>Non Featured Products</legend>
+      <table>
+        <thead>
+          <tr>
+            <th></th><!-- Product picture -->
+            <th>Product Name</th>
+            <th>Description</th> 
+            <th></th><!-- Add to Featured -->
+          </tr>
+        </thead>
+
+        <tbody>
+          <% Product.includes(:featured_product).where(featured_products: { product_id:  nil }).each do |product| %>
+            <tr>
+              <td><%= image_tag product.picture.url(:thumb) %></td>
+              <td><%= link_to product.title, product %></td>
+              <td><%= truncate product.description, length: 120 %></td>
+              <td><%= link_to "Add new", {:controller => "featured_products", :action => "new", :product_id => product.id }%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </fieldset>
+  </div>
+
+

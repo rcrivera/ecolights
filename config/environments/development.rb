@@ -14,7 +14,22 @@ Ecolights::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+
+  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "ecolightpr.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "",
+    password: ""
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -26,4 +41,6 @@ Ecolights::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  Paperclip.options[:command_path] = "/opt/local/bin"
 end

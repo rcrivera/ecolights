@@ -1,0 +1,43 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li><%= link_to 'Technologies', admin_technologies_path %></li>
+        <li class="active"> <%= @technology.title %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @technology.title %></h2>
+      <p><%= link_to 'Edit', edit_admin_technology_path(@technology), :class=>"btn btn-danger" %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody class="index-admin">
+            <tr>
+              <td><strong>Picture</strong></td>
+              <td><%= image_tag @technology.picture.url(:thumb) %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><%= @technology.title %></td>
+            </tr>
+
+             <tr>
+              <td><strong>Description</strong></td>
+              <td><%= @technology.description %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li class="active"> <%= @header %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @header %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <fieldset>
+        <table class="table">
+          <thead>
+             <tr>
+              <th></th><!-- Product picture -->
+              <th>Product Name</th>
+              <th>Position</th>
+              <th>Message</th> 
+              <th>Actions</th><!-- Edit/Destroy -->
+            </tr>
+          </thead>
+          <tbody class="index-admin">
+            <% FeaturedProduct.all.each do |featured_product| %>
+              <% product = featured_product.product %>
+              <tr>
+                <td><%= image_tag product.picture.url(:thumb) %></td>
+                <td><%= link_to product.title, admin_product_path(product) %></td>
+                <td><%= featured_product.position %></td>
+                <td><%= featured_product.message %></td>
+                <td><%= link_to 'Edit', edit_admin_featured_product_path(featured_product) %><br>
+                <%= link_to 'Remove', admin_featured_product_path(featured_product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+       </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <fieldset>
+            <legend>Non Featured Products</legend>
+            <table class="table">
+              <thead>
+                 <tr>
+                  <th></th><!-- Product picture -->
+                  <th>Product Name</th>
+                  <th>Description</th> 
+                  <th>Actions</th><!-- Add to Featured -->
+                </tr>
+              </thead>
+              <tbody class="index-admin">
+                <% Product.includes(:featured_product).where(featured_products: { product_id:  nil }).each do |product| %>
+                  <tr>
+                    <td><%= image_tag product.picture.url(:thumb) %></td>
+                    <td><%= link_to product.title, admin_product_path(product) %></td>
+                    <td><%= truncate product.description, length: 120 %></td>
+                    <td><%= link_to "Add new", {:controller => "featured_products", :action => "new", :product_id => product.id } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </fieldset>
+        </div>
+      </div>
+   
+  </div>
+</div>
+
+

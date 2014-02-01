@@ -1,0 +1,42 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li class="active"><%= "Admin Content Manager" %></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= "Admin Content Manager" %></h2>
+    </div>
+  </div>
+
+  <div class="row row-offset">
+    <div class="col-md-3 centralize">
+    	<%=image_tag("icons/prod.png", :size=>"200x200", :class=>"img-thumbnail")%>
+    	<div class="acm" ><%= link_to 'Products', admin_products_path,:class=>"btn btn-primary" %></div>
+    </div>
+    <div class="col-md-3 centralize">
+    	<%=image_tag("icons/cat.png", :size=>"200x200", :class=>"img-thumbnail")%>
+    	<div class="acm" ><%= link_to 'Categories', admin_categories_path, :class=>"btn btn-primary" %></div>
+    </div>
+    <div class="col-md-3 centralize">
+    	<%=image_tag("icons/feat.png", :size=>"200x200", :class=>"img-thumbnail")%>
+    	<div class="acm" ><%= link_to 'Featured Products', admin_featured_products_path, :class=>"btn btn-primary" %></div>
+    </div>
+    <div class="col-md-3 centralize">
+    	<%=image_tag("icons/app.png", :size=>"200x200", :class=>"img-thumbnail")%>
+    	<div class="acm" ><%= link_to 'Approvals', admin_approvals_path, :class=>"btn btn-primary" %></div>
+    </div>
+  </div>
+
+  <div class="row row-offset">
+    <div class="col-md-3 centralize">
+    	<%=image_tag("icons/tech.png", :size=>"200x200", :class=>"img-thumbnail")%>
+    	<div class="acm" ><%= link_to 'Technologies', admin_technologies_path, :class=>"btn btn-primary" %></div>
+    </div>
+  </div>
+
+ </div>

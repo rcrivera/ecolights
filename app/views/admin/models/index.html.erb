@@ -1,0 +1,31 @@
+<h1>Listing models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Sku code</th>
+      <th>Characteristics</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @models.each do |model| %>
+      <tr>
+        <td><%= model.product_id %></td>
+        <td><%= model.sku_code %></td>
+        <td><%= model.characteristics %></td>
+        <td><%= link_to 'Show', admin_model_path(model) %></td>
+        <td><%= link_to 'Edit', edit_admin_model_path(model) %></td>
+        <td><%= link_to 'Destroy', admin_model_path(model), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Model', new_admin_model_path %>

@@ -1,0 +1,132 @@
+ <div class="container">
+    <div class="col-md-12">
+      
+      <%= form_for [:admin, @product], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+          <fieldset>
+          <% if @product.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+              <ul>
+              <% @product.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= label_tag '', "Categories", class: 'control-label' %>
+            <%= hidden_field_tag "product[category_ids][]", nil %>
+              <%= render 'admin/categories/subcategories', subcats: Category.roots %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag '', "Technologies", class: 'control-label' %><br>
+            <%= hidden_field_tag "product[technology_ids][]", nil %>
+            <% Technology.all.each do |technology| %>
+            <%= check_box_tag "product[technology_ids][]", technology.id, @product.technology_ids.include?(technology.id), id: dom_id(technology) %>
+            <%= label_tag dom_id(technology), technology.title %>
+            <% end %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.label :title, 'Name',:class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :title, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :sku_code,'Sku', :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :sku_code, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :specifications, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :specifications, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :features, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :features, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+
+          <% if @product.picture? %>
+          <div class="form-group"><label class = "control-label">Current Picture</label><div class="controls"><%= image_tag @product.picture.url(:thumb) %></div></div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.label :picture, "Picture",:class => "control-label" %>
+            <div class="controls">
+              <%= f.file_field :picture%>
+            </div>
+          </div>
+
+          <% if @product.picture? %>
+            <div class="form-group">
+              <%= label_tag 'remove_picture', "Remove Picture", class: 'control-label' %>
+              <%= check_box_tag(:remove_picture) %>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= label_tag '', "Approvals", class: 'control-label' %><br>
+            <%= hidden_field_tag "product[approval_ids][]", nil %>
+            <% Approval.all.each do |approval| %>
+              <%= image_tag approval.picture.url(:thumb), :class=>"approval-image" %>
+              <%= check_box_tag "product[approval_ids][]", approval.id, @product.approval_ids.include?(approval.id), id: dom_id(approval)%>
+            <% end %>
+          </div>
+
+          <hr>
+
+        <fieldset>
+          <legend>Downloads</legend>
+          <%= f.fields_for :downloads do |builder| %>
+            <%= render 'download_fields', f: builder %>
+          <% end %>
+          <%= link_to_add_downloads "Add Download", f, :downloads%>
+        </fieldset>
+
+        <br><br><br>
+
+        <fieldset>
+          <legend>Models</legend>
+          <div class="form-group">
+            <%= f.label :attributes_titles, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :attributes_titles, :class => "form-control input-xlarge" %>
+            </div>
+          </div>
+          <hr>
+
+          <%= f.fields_for :models do |builder| %>
+            <%= render 'model_fields', f: builder %>
+          <% end %>
+          <%= link_to_add_models "Add Model", f, :models %>
+        </fieldset>
+        
+          <br><br><br>
+
+          <div class="actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+</div>

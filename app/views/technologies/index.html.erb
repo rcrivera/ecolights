@@ -1,0 +1,354 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%=link_to "Home", root_url %></li>
+        <li class="active"><%= "Technologies" %></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @header %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 technology-slogan">
+      <h3> "We're closing the gap between what's imagined and what's possible in lighting. Welcome to the next generation in LED technology!"</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 video-container">
+      <iframe width="853" height="480" src="//www.youtube.com/embed/AZJ4AXrpqBk?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= "Our Technologies" %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                <%=image_tag("ledchroic/logo-ledchroic-small.png")%>
+              </a>
+            </div>
+            <div class="col-md-6 text-right">
+            
+                <%= link_to "View products", @technologies[0], :class=>"btn btn-primary text-right" %>
+            
+            </div>
+          </div>
+        </div>
+ 
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2"></div>
+          
+            <div class="col-md-8">
+              <div class="flex-video widescreen"><iframe width="640" height="360" src="//www.youtube.com/embed/hT0lEPS6YF8?rel=0" frameborder="0" allowfullscreen></iframe></div>
+              
+            </div>
+
+
+            <div class="col-md-2"></div>
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "The evolution of LED lighting" %></h3>
+              <h4 class="flat-font"><%= "Aurora’s line products featuring LEDchroic™ technology could be mistaken for standard dichroic halogens - both in performance and aesthetics." %></h4>
+            </div>
+          </div>
+
+
+          <div class="row tech-content">
+            <div class="col-md-12">
+               <p>But our LEDchroic™ lamps and luminaires are not your standard LEDs. They feature the very latest in anti-glare LED lens technology.</p>
+
+                <p>Their micro lens array, or MLA, consists of hundreds precise, diamond-like micro facets. This sparkling lens redistributes the light from a single source chip on board, or COB, LED. LEDchroic lenses give accurate beam angle control from a single HVLED light source, reducing the overshadowing effect of multi-point LED light sources.</p>
+
+                <p>The effect is a comfortable, evenly distributed, beam of light with a minimal glare.</p>
+              
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("ledchroic/beam-angle.png", :class=>"img-responsive")%>
+                <figcaption>LEDchroic™ micro lens array (MLA) gives lamps & luminaires the exact appearance of dichroic halogens, providing precise beam angles and 50% reduction in light loss compared to a typical LED lens...</figcaption>
+              </figure>  
+      
+              <figure>
+                <%=image_tag("ledchroic/overshadowing.png", :class=>"img-responsive")%>
+                <figcaption>...while reducing the effects of overshadowing found in multi-point LEDs.</figcaption>
+              </figure>  
+            </div>
+
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "Optical artisanship" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>Clarity of the lens is critical, as low quality materials inhibit the transmission of light and can reduce light output. At Aurora, we use the highest grade of resin for our optics to optimise the quality of light, improve the colour rendering and maximise the lumen output, all while reducing the required wattage.</p>
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("ledchroic/ledchroic-artisanship.jpg", :class=>"img-responsive")%>
+                <figcaption>LEDchroic lens production.</figcaption>
+              </figure>  
+            </div>
+
+          </div>
+
+        </div><!-- container -->
+        
+
+      </div>
+    </div>
+  </div>
+
+  <!-- _________________________________ Crystal Cool _________________________________ -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <a data-toggle="collapse" data-parent="#accordion" href="##collapseTwo">
+                <%=image_tag("crystalcool/logo-crystalcool-small.png")%>
+              </a>
+            </div>
+            <div class="col-md-6 text-right">
+                <%= link_to "View products", @technologies[1], :class=>"btn btn-primary text-right" %>
+            </div>
+          </div>
+        </div>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+          <div class="container">
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <%=image_tag("crystalcool/crystalcool-exploded.png", :class=>"img-responsive")%>
+            </div>
+
+          </div>
+
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "Aurora's groundbreaking CrystalCool™ technology is literally the coolest thing to hit the LED market" %></h3>
+              <h4 class="flat-font"><%= "CrystalCool™ uses nanotechnology to provide extremely effective heat dissipation and thermal management." %></h4>
+            </div>
+          </div>
+
+          <div class="row tech-content">
+            <div class="col-md-12">
+               <p>LEDs generate significant amounts of heat in order to produce light. This normally requires a large thermal heatsink to adequately cool an LED lamp. The higher the lumen output, the more LEDs required, the larger the heatsink.</p>
+
+               <p>Heat directly affects an LED lamp's quality of light over time. Without adequately channeling the heat away from the lamp's temperature sensitive electronics, colour temperature can shift and lumen output depreciation accelerates. Clearly, LED lamp reliability and longevity depends on its thermal management.</p>
+
+              
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("crystalcool/4d-ceramic-nanolayers.jpg", :class=>"img-responsive")%>
+                <figcaption>Heat is conducted away from the LED chip and Aluminum MCPCB (1) by CrystalCool™'s specially designed nano-layering structure (2) and nano carbon layer (3).</figcaption>
+              </figure>  
+            </div>
+
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "CrystalCool™ nano layers" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>With CrystalCool™ technology, 150 layers of decreasingly dense, 4D ceramic nano material conduct heat away from the lamp's temperature-sensitive electronic components.</p>
+
+               <p>The layers form a 3D surface upon the aluminium metal core printed circuit board, or MCPCB. The 4th dimension is time as heat produced by the LED travels through the layers, enabling increasingly rapid dissipation as the nano material becomes less dense. One effect is a 10 percent reduction in temperature at the solder point, which enables increased reliability.</p>
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("crystalcool/graphic-regmcpcb-vs-crystalcool-horiz.png", :class=>"img-responsive")%>
+                <figcaption>Regular MCPCB vs 4D CrystalCool™ </figcaption>
+              </figure>  
+            </div>
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "Higher quality, brighter light for longer" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>Such efficient thermal management allows for an ultra high lumen output and and lifetime, meaning lamps can now produce a higher quality of light, for longer.</p>
+
+               <p>Additionally, CrystalCool™ dramatically slows the rate of lumen depreciation. Relying solely conventional heatsinking will help with the gradual fading of LED light, but, as the graph shows, it still diminishes at a much faster rate when compared to CrystalCool™ thermal management. </p>
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("crystalcool/graphic-crystalcool-longerlife.png", :class=>"img-responsive")%>
+                <figcaption>CrystalCool™ Longerlife</figcaption>
+              </figure>  
+            </div>
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "Optimised fire rated lamps and luminaires" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>We feature our CrystalCool™ technology inside our line of Firetec™ lamps and in select fire rated downlights. Firetec™ lamps are the only lamps optimised for use in fire rated, enclosed or semi-enclosed luminaires where thermal management is crucial.</p>
+
+               <p>Our Firetec™ lamps are fully dimmable and have a high colour rendering index of 80. These brilliant lamps have an average lifespan of 25,000 hours to 70 percent lumen maintenance and come with a 3 year warranty. Increase it to 5 years when you pair Firetec lamps with Universal fire rated downlights for the ultimate combination of maximum lamp life and performance.</p>
+            </div>
+          </div>
+
+
+        </div><!-- container -->
+      </div>
+    </div>
+  </div>
+
+  <!-- _________________________________ Lunarcx _________________________________ -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <a data-toggle="collapse" data-parent="#accordion" href="##collapseThree">
+                <%=image_tag("lunacx/logo-lunacx.png")%>
+              </a>
+            </div>
+            <div class="col-md-6 text-right">
+                <%= link_to "View products", @technologies[2], :class=>"btn btn-primary text-right" %>
+            </div>
+          </div>
+        </div>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2"></div>
+          
+            <div class="col-md-8">
+              <div class="flex-video widescreen"><iframe width="640" height="360" src="//www.youtube.com/embed/GroDVlYfGGY?rel=0" frameborder="0" allowfullscreen></iframe></div>
+
+              
+            </div>
+
+
+            <div class="col-md-2"></div>
+          </div>
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "The latest generation of tunable white LED lighting" %></h3>
+            </div>
+          </div>
+
+
+          <div class="row tech-content">
+            <div class="col-md-12">
+               <p>Aurora’s LUNA Colour Xchange, or LUNAcx, line features colour temperature adjustment (CTA) lighting technology to allow the creation of application-specific environments. Through the use of a dedicated LUNAcx control unit, lamp brightness and colour temperature can be altered simultaneously or independently, from a warm 3000K, to a neutral 4000K, to a cool 6400K. </p>
+              
+            </div>
+          </div>
+
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "How does LUNAcx work?" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>The change of colour temperature and light intensity is achieved by mixing the light output of two groups of LEDs. One group has a warm colour temperature and the other has a cool colour temperature. Changing the light output of these two groups allows to colour temperature to vary seamlessly between these two values. </p>
+            </div>
+          </div>
+
+          <div class="row tech-pictures">
+            <div class="col-md-12 centralize">
+              <figure>
+                <%=image_tag("lunacx/circadian-rhythm.png", :class=>"img-responsive")%>
+                <figcaption><b>Did you know?</b> Daylight has the ability to invigorate and even heal because of the power it has over circadian rhythm. Once the sun goes down, it cues our bodies to begin preparing for sleep, which involves lowering body temperature, producing melatonin, and decreasing cortisol levels. Once the sun rises, the process reverses and our bodies prepare the face the day.</figcaption>
+              </figure>  
+            </div>
+          </div>
+
+
+          <div class="row tech-header">
+            <div class="col-md-12 centralize">
+              <h3 class="flat-font"><%= "Enhance any space" %></h3>
+            </div>
+          </div>
+
+           <div class="row tech-content">
+            <div class="col-md-12">
+               <p>LUNAcx is ideal for offices, retail, residential and hospitality applications. The right colour temperature at the right time has the power to increase productivity and even alter mood. For instance, incorporating high colour temperatures, 5000K to 6500K, can help suppress melatonin and raise alertness in a work environment. Dimming and adjusting the lights to a warm 3000K in a restaurant adds an ambiance of relaxation and comfort, setting the tone for an enjoyable meal. Plus, up to 100 downlights can be interconnected and controlled, making LUNAcx ideal for retail spaces.</p>
+            </div>
+          </div>
+
+
+
+        </div><!-- container -->
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>

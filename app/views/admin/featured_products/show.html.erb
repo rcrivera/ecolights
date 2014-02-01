@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @featured_product.product_id %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @featured_product.message %>
+</p>
+
+<%= link_to 'Edit', edit_admin_featured_product_path(@featured_product) %> |
+<%= link_to 'Back', admin_featured_products_path %>

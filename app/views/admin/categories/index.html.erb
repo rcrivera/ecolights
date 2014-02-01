@@ -1,0 +1,51 @@
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li class="active"> <%= @header %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @header %></h2>
+      <p><%= link_to '+ New Category', new_admin_category_path, :class=>"btn btn-success" %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Path</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="user_signed_in_table">
+            <% @categories.each do |category| %>
+              <tr>
+                <td><%= image_tag category.picture.url(:thumb) %></td>
+                <td><%= link_to category.title, admin_category_path(category) %></td>
+                <td>
+                  <% category.path.each do |p| %>
+                    <%= p.title %> <br>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to 'Edit', edit_admin_category_path(category) %> |
+                  <%= link_to 'Remove', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

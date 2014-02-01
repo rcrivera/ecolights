@@ -1,0 +1,54 @@
+
+
+<div class="container content">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin Content Manager", admin_root_path %></li>
+        <li><%= link_to 'Categories', admin_categories_path %></li>
+        <li class="active"> <%= @header %> </li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="centralize page-heading"><%= @category.title %></h2>
+      <p><%= link_to 'Edit', edit_admin_category_path(@category), :class=>"btn btn-danger" %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>Picture</strong></td>
+              <td><%= image_tag @category.picture.url(:medium) %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><%= @category.title %></td>
+            </tr>
+
+             <tr>
+              <td><strong>Description</strong></td>
+              <td><%= @category.description %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Path</strong></td>
+              <td>
+                <% @category.path.each do |p| %>
+                  <%= p.title %> <br>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

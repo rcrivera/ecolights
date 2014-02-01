@@ -10,4 +10,351 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap
+
  */
+
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+@import url(http://fonts.googleapis.com/css?family=Nixie+One);
+
+#body{
+	background-color: #A9E1D7;
+}
+
+.centralize{
+	text-align: center;
+}
+
+.acm{
+	margin-top:  15px;
+}
+
+.index-admin > tr > td{
+	text-align: left;
+}
+
+.user_signed_in > tr > td{
+	text-align: right;
+}
+
+.user_signed_in_table{
+	background-color: white;
+}
+
+.nav_link_admin{
+	color: red;
+}
+
+.approval-image{
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+.row-offset{
+	margin-bottom: 50px;
+}
+
+.logo{
+	margin-bottom: 15px;
+}
+
+.nav-background{
+	color: white;
+}
+
+.nav-justified > li{
+	background-color: white;
+}
+
+.nav-justified > li > a {
+  color: #777777;
+  text-align: center;
+  font-size:1.5em;
+}
+
+.nav-justified > li > a:hover {
+  color: #66BB88;
+  background-color: white;
+}
+
+.btn-primary:visited, .btn-warning:visited, .btn-danger:visited,  .btn-success:visited, .btn-info:visited{
+    color: white;
+}
+
+.btn-primary{
+	margin-top: 5px;
+}
+
+.content{
+	background-color: white;
+	padding: 10px;
+}
+
+.footer{
+	background-color: white;
+}
+.header{
+	font-family: 'Permanent Marker', cursive;
+	color: #66BB88;
+	margin-top: 10px;
+	font-size: 6em;
+}
+
+.toggle{
+	background-color: white;
+}
+
+.carousel-inner > .item > img { 
+	margin: 0 auto;
+	padding-top: 200px;
+}
+
+.carousel-inner{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #D4DDAA;
+	margin-bottom: 10px;
+}
+
+.featured-product-caption{
+	position:fixed;
+	top: -30px;
+	left: 0px;
+}
+
+.featured-product-caption h3{
+	color: #2299DD;
+	font-family: 'Nixie One', cursive;
+
+}
+
+.technology-slogan{
+	font-family: 'Nixie One', cursive;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+div.tech-content div.col-md-8 p{
+	font-family: "Lato";
+	font-size: 1.25em;
+	line-height: 160%;
+}
+
+.tech-content, .tech-pictures, .tech-header {
+	margin-top: 15px;
+}
+
+.tech-pictures{
+	vertical-align: middle;
+}
+
+.message{
+	color: red;
+}
+
+#footer{
+	margin-top: 10px;
+}
+
+.ft-product-title, .nav_link, ul.ft-product-titles li h4, .message,
+.learn-btn, .page-heading, .flat-font, .sku-show, .p-title-show{
+	font-family: 'Nixie One', cursive;
+}
+
+ol.breadcrumb li{
+	font-family: "Lato";
+	font-size: 1.15em;
+}
+
+ol.breadcrumb{
+	background-color: #f9ffde;
+}
+
+.p-description-show{
+	font-family: "Lato";
+	font-size: 1.25em;
+	line-height: 140%;
+	text-align: justify;
+}
+
+.p-title-show{
+	text-align: left;
+}
+
+.p-download-show{
+	color: white;
+	font-family: "Lato";
+}
+
+.sku-show{
+	color: red;
+}
+
+.p-spec-show , .p-feature-show, .p-model-show{
+	font-family: "Lato";
+	font-size: 1.2em;
+}
+.p-model-show{
+	text-align: left;
+}
+
+.p-general-show{
+	padding-right: 20px;
+}
+
+.page-heading{
+	margin-bottom: 30px;
+}
+.btn-primary{
+	color: white;
+	background-color: white;
+}
+
+ul.ft-product-titles li h4{
+	margin-bottom: 40px;
+	line-height: 200%;
+}
+
+.footer-logo{
+	text-align: right;
+}
+
+h4.footer-logo a img{
+	vertical-align: bottom;
+}
+
+
+.copyright{
+	font-family: 'verdana';
+	font-size: 1.1em;
+	margin-top: 20px;
+	color: #999999;
+}
+
+.row-section{
+	margin: 15px;
+}
+
+.section{
+	margin-top: 10px;
+ 	text-align: center;
+ }
+.section > h3{
+	font-family: 'Nixie One', cursive;
+}
+
+table tbody tr td{
+ 	text-align: center;
+}
+
+
+.video-container, .video-container-small{
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+   
+}
+
+.video-container iframe,
+.video-container object{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+}
+
+/*
+
+.video-container-small {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container-small iframe,
+.video-container-small object,
+.video-container-small embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+}
+*/
+
+.flex-video {
+position: relative;
+padding-top: 25px;
+padding-bottom: 67.5%;
+height: 0;
+margin-bottom: 16px;
+overflow: hidden;
+}
+ 
+.flex-video.widescreen { padding-bottom: 57.25%; }
+.flex-video.vimeo { padding-top: 0; }
+ 
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+.flex-video { padding-top: 0; }
+}
+
+.img-responsive {
+	margin: auto;
+}
+
+.panel-body > .container > .row {
+	margin-right: 2%;
+}
+
+figure{
+	padding-bottom: 20px;
+}
+figcaption{
+	padding-top: 10px;
+}
+
+.tech-button{
+}
+
+.container .row .col-md-12 h1{
+ 	text-align: center;
+ }
+
+ #featured_title{
+ 	text-align: center;
+ }
+
+ 
+
+ #wrapper{
+ 	margin: 0 auto;
+ }
+
+ .browse_categories{
+ 	text-align: center;
+ }
+
+ .product_index{
+ 	text-align: center;
+ }
+
+ .form-group{
+ 	margin-bottom: 20px;
+ }
+
+
+
+.category_leaf{
+	list-style-type: none;
+}
