@@ -20,7 +20,7 @@ class Product < ActiveRecord::Base
 
 	accepts_nested_attributes_for :categories
 
-	has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => "/images/:style/missing.png",
+	has_attached_file :picture, :dependent => :destroy, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => "/images/:style/missing.png",
 		:url => "/assets/products/:id/:style/:basename.:extension",
   		:path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 end
