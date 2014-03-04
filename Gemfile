@@ -55,4 +55,4 @@ gem "cancan"
 
 gem 'aws-sdk'
 
-ruby "2.0.0"
+#ruby "2.0.0"
